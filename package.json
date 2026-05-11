@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Smart redirect page for GreenleafAudit app",
   "scripts": {
-    "dev": "vercel dev",
+    "dev": "node server.js",
     "build": "echo 'Ready for Vercel deployment'",
     "start": "node server.js"
   },
