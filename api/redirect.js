@@ -29,7 +29,7 @@ export default function handler(req, res) {
           * { margin: 0; padding: 0; box-sizing: border-box; }
           body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #000;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -37,23 +37,24 @@ export default function handler(req, res) {
             padding: 20px;
           }
           .container {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
+            background: #070707;
+            border-radius: 28px;
+            padding: 44px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+            max-width: 620px;
             text-align: center;
+            border: 1px solid rgba(98, 187, 193, 0.18);
           }
           h1 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 32px;
+            color: #f8fafc;
+            margin-bottom: 10px;
+            font-size: 34px;
           }
           p {
-            color: #666;
-            margin-bottom: 40px;
-            font-size: 16px;
-            line-height: 1.6;
+            color: #b3c1c7;
+            margin-bottom: 30px;
+            font-size: 15px;
+            line-height: 1.7;
           }
           .buttons {
             display: grid;
@@ -92,41 +93,45 @@ export default function handler(req, res) {
             }
           }
           .qr-section {
-            margin-top: 50px;
+            margin-top: 44px;
             padding-top: 30px;
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid rgba(98, 187, 193, 0.18);
           }
           .qr-section h3 {
-            color: #333;
+            color: #9edfe5;
             margin-bottom: 20px;
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.16em;
           }
           .qr-code {
-            max-width: 200px;
+            max-width: 210px;
             margin: 0 auto;
+            border: 1px solid rgba(98, 187, 193, 0.14);
+            border-radius: 18px;
+            padding: 14px;
+            background: rgba(0, 0, 0, 0.36);
           }
         </style>
       </head>
       <body>
         <div class="container">
-          <h1>📱 Download GreenleafAudit</h1>
-          <p>Choose your platform to get started:</p>
+          <h1>Download GreenleafAudit</h1>
+          <p>Choose your platform to get started.</p>
           
           <div class="buttons">
             <a href="${iosUrl}" target="_blank" rel="noopener noreferrer">
-              <img src="https://developer.apple.com/app-store/marketing/guidelines/v5/images/badge-example-preferred_2x.png" alt="Download on App Store">
+              <img src="/app-store-badge.svg" alt="Download on App Store">
             </a>
             <a href="${androidUrl}" target="_blank" rel="noopener noreferrer">
-              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+              <img src="/google-play-badge.svg" alt="Get it on Google Play">
             </a>
           </div>
           
           <div class="qr-section">
             <h3>Or scan this QR code</h3>
             <div class="qr-code">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://download.greenleafassurance.com" alt="QR Code" style="width: 100%; border-radius: 8px;">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https://download-gules.vercel.app&color=62BBC1&bgcolor=010400" alt="QR Code" style="width: 100%; border-radius: 16px;">
             </div>
           </div>
         </div>
