@@ -105,7 +105,7 @@ export default function handler(req, res) {
             letter-spacing: 0.16em;
           }
           .qr-code {
-            max-width: 210px;
+            max-width: 260px;
             margin: 0 auto;
             border: 1px solid rgba(98, 187, 193, 0.14);
             border-radius: 18px;
@@ -130,11 +130,24 @@ export default function handler(req, res) {
           
           <div class="qr-section">
             <h3>Or scan this QR code</h3>
-            <div class="qr-code">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https://download-gules.vercel.app&color=62BBC1&bgcolor=010400" alt="QR Code" style="width: 100%; border-radius: 16px;">
-            </div>
+            <div class="qr-code" id="qr-code"></div>
           </div>
         </div>
+        <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+        <script>
+          const qr = new QRCodeStyling({
+            width: 260,
+            height: 260,
+            data: "https://download-gules.vercel.app",
+            image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23010400'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-size='48' font-weight='700' font-family='Tahoma, Arial, sans-serif' fill='%2362BBC1'%3EGL%3C/text%3E%3C/svg%3E",
+            dotsOptions: { color: "#62BBC1", type: "rounded" },
+            cornersSquareOptions: { type: "extra-rounded", color: "#62BBC1" },
+            cornersDotOptions: { type: "dot", color: "#62BBC1" },
+            backgroundOptions: { color: "#010400" },
+            imageOptions: { crossOrigin: "anonymous", margin: 8, imageSize: 0.25 }
+          });
+          qr.append(document.getElementById("qr-code"));
+        </script>
       </body>
       </html>
     `);
