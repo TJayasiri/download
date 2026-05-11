@@ -37,95 +37,147 @@ export default function handler(req, res) {
             padding: 20px;
           }
           .container {
-            background: rgba(10, 12, 15, 0.96);
-            border-radius: 32px;
-            padding: 44px;
-            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.55);
-            max-width: 640px;
+            background: rgba(10, 12, 15, 0.92);
+            border-radius: 42px;
+            padding: 46px;
+            box-shadow: 0 45px 110px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+            max-width: 700px;
             text-align: center;
-            border: 1px solid rgba(98, 187, 193, 0.16);
-            backdrop-filter: saturate(180%) blur(16px);
+            border: 1px solid rgba(98, 187, 193, 0.14);
+            backdrop-filter: blur(24px);
+            position: relative;
+            overflow: hidden;
+          }
+          .container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(98, 187, 193, 0.12), transparent 20%), radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 20%);
+            pointer-events: none;
+          }
+          .top-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(98, 187, 193, 0.18);
+            background: rgba(255, 255, 255, 0.03);
+            color: #9edfe5;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+            position: relative;
+            z-index: 1;
+          }
+          .top-badge::after {
+            content: "Premium";
+            opacity: 0.55;
           }
           h1 {
             color: #f8fafc;
-            margin-bottom: 10px;
-            font-size: 34px;
+            margin-bottom: 8px;
+            font-size: 40px;
+            letter-spacing: -0.03em;
+            position: relative;
+            z-index: 1;
           }
           p {
-            color: #b3c1c7;
-            margin-bottom: 30px;
+            color: #adb9c2;
+            margin-bottom: 36px;
             font-size: 15px;
-            line-height: 1.7;
+            line-height: 1.9;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
           }
           .buttons {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            margin-bottom: 30px;
+            gap: 22px;
+            margin-bottom: 32px;
             align-items: center;
+            position: relative;
+            z-index: 1;
           }
           .buttons a {
-            display: inline-block;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
             padding: 0;
-            border-radius: 16px;
+            border-radius: 24px;
             overflow: hidden;
             background: rgba(255, 255, 255, 0.04);
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
             text-decoration: none;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
           }
           .buttons a:hover {
             transform: translateY(-2px);
-            box-shadow: inset 0 0 0 1px rgba(98, 187, 193, 0.22), 0 16px 30px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: inset 0 0 0 1px rgba(98, 187, 193, 0.22), 0 20px 40px rgba(0, 0, 0, 0.28);
           }
           .buttons img {
             width: 100%;
             height: auto;
             display: block;
+            object-fit: cover;
           }
           @media (max-width: 560px) {
             .buttons {
               grid-template-columns: 1fr;
             }
             .container {
-              padding: 30px 20px;
+              padding: 32px 20px;
             }
             h1 {
-              font-size: 26px;
+              font-size: 28px;
             }
           }
           .qr-section {
             margin-top: 44px;
             padding-top: 30px;
-            border-top: 1px solid rgba(98, 187, 193, 0.14);
+            border-top: 1px solid rgba(98, 187, 193, 0.12);
+            position: relative;
+            z-index: 1;
           }
           .qr-section h3 {
             color: #9edfe5;
             margin-bottom: 20px;
             font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 0.16em;
+            letter-spacing: 0.18em;
           }
           .qr-code {
-            max-width: 280px;
+            max-width: 300px;
             margin: 0 auto;
-            border-radius: 32px;
-            padding: 18px;
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: inset 0 0 0 1px rgba(98, 187, 193, 0.12), 0 28px 60px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(20px);
+            border-radius: 38px;
+            padding: 22px;
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: inset 0 0 0 1px rgba(98, 187, 193, 0.12), 0 26px 60px rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(26px);
+          }
+          .qr-note {
+            color: #9edfe5;
+            font-size: 13px;
+            margin-top: 18px;
+            letter-spacing: 0.14em;
           }
           .qr-code canvas,
           .qr-code svg {
             width: 100% !important;
             height: auto !important;
             display: block;
-            border-radius: 20px;
+            border-radius: 24px;
           }
         </style>
       </head>
       <body>
         <div class="container">
+          <div class="top-badge">Smart app access</div>
           <h1>Download GreenleafAudit</h1>
           <p>Choose your store or scan the QR code below to open the app page instantly.</p>
           
@@ -141,6 +193,7 @@ export default function handler(req, res) {
           <div class="qr-section">
             <h3>Or scan this QR code</h3>
             <div class="qr-code" id="qr-code"></div>
+            <p class="qr-note">Scan to open GreenleafAudit on your device</p>
           </div>
         </div>
         <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
