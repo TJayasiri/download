@@ -1,0 +1,13 @@
+{
+  "name": "greenleaf-download",
+  "version": "1.0.0",
+  "description": "Smart redirect page for GreenleafAudit app",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Ready for Vercel deployment'",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
