@@ -2,6 +2,7 @@
   "rewrites": [
     { "source": "/", "destination": "/api/redirect" },
     { "source": "/download", "destination": "/api/redirect" },
-    { "source": "/(.*)", "destination": "/api/redirect" }
+    { "source": "/((?!.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|json|txt|js|css)).*)",
+      "destination": "/api/redirect" }
   ]
 }
