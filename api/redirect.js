@@ -29,7 +29,7 @@ export default function handler(req, res) {
           * { margin: 0; padding: 0; box-sizing: border-box; }
           body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #000;
+            background: radial-gradient(circle at top, rgba(98, 187, 193, 0.12), transparent 28%), #000;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -37,13 +37,14 @@ export default function handler(req, res) {
             padding: 20px;
           }
           .container {
-            background: #070707;
-            border-radius: 28px;
+            background: rgba(10, 12, 15, 0.96);
+            border-radius: 32px;
             padding: 44px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
-            max-width: 620px;
+            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.55);
+            max-width: 640px;
             text-align: center;
-            border: 1px solid rgba(98, 187, 193, 0.18);
+            border: 1px solid rgba(98, 187, 193, 0.16);
+            backdrop-filter: saturate(180%) blur(16px);
           }
           h1 {
             color: #f8fafc;
@@ -59,29 +60,30 @@ export default function handler(req, res) {
           .buttons {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 18px;
             margin-bottom: 30px;
             align-items: center;
           }
           .buttons a {
             display: inline-block;
             padding: 0;
-            border-radius: 0;
-            background: none;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
             text-decoration: none;
-            transition: transform 0.3s ease, filter 0.3s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
           }
           .buttons a:hover {
-            transform: scale(1.05);
-            filter: brightness(1.1);
+            transform: translateY(-2px);
+            box-shadow: inset 0 0 0 1px rgba(98, 187, 193, 0.22), 0 16px 30px rgba(0, 0, 0, 0.25);
           }
           .buttons img {
             width: 100%;
-            max-width: 200px;
             height: auto;
             display: block;
           }
-          @media (max-width: 480px) {
+          @media (max-width: 560px) {
             .buttons {
               grid-template-columns: 1fr;
             }
@@ -89,13 +91,13 @@ export default function handler(req, res) {
               padding: 30px 20px;
             }
             h1 {
-              font-size: 24px;
+              font-size: 26px;
             }
           }
           .qr-section {
             margin-top: 44px;
             padding-top: 30px;
-            border-top: 1px solid rgba(98, 187, 193, 0.18);
+            border-top: 1px solid rgba(98, 187, 193, 0.14);
           }
           .qr-section h3 {
             color: #9edfe5;
@@ -105,19 +107,27 @@ export default function handler(req, res) {
             letter-spacing: 0.16em;
           }
           .qr-code {
-            max-width: 260px;
+            max-width: 280px;
             margin: 0 auto;
-            border: 1px solid rgba(98, 187, 193, 0.14);
-            border-radius: 18px;
-            padding: 14px;
-            background: rgba(0, 0, 0, 0.36);
+            border-radius: 32px;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: inset 0 0 0 1px rgba(98, 187, 193, 0.12), 0 28px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+          }
+          .qr-code canvas,
+          .qr-code svg {
+            width: 100% !important;
+            height: auto !important;
+            display: block;
+            border-radius: 20px;
           }
         </style>
       </head>
       <body>
         <div class="container">
           <h1>Download GreenleafAudit</h1>
-          <p>Choose your platform to get started.</p>
+          <p>Choose your store or scan the QR code below to open the app page instantly.</p>
           
           <div class="buttons">
             <a href="${iosUrl}" target="_blank" rel="noopener noreferrer">
