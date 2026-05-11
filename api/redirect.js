@@ -23,6 +23,8 @@ export default function handler(req, res) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>GreenleafAudit - Download</title>
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23010400'/><text x='50' y='72' text-anchor='middle' font-family='Tahoma, Arial, sans-serif' font-size='52' font-weight='700'><tspan fill='%23ffffff'>G</tspan><tspan fill='%2362BBC1'>L</tspan></text></svg>">
+        <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23010400'/><text x='90' y='130' text-anchor='middle' font-family='Tahoma, Arial, sans-serif' font-size='94' font-weight='700'><tspan fill='%23ffffff'>G</tspan><tspan fill='%2362BBC1'>L</tspan></text></svg>">
         <style>
           * { margin: 0; padding: 0; box-sizing: border-box; }
           body {
@@ -56,8 +58,27 @@ export default function handler(req, res) {
           .buttons {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 20px;
             margin-bottom: 30px;
+            align-items: center;
+          }
+          .buttons a {
+            display: inline-block;
+            padding: 0;
+            border-radius: 0;
+            background: none;
+            text-decoration: none;
+            transition: transform 0.3s ease, filter 0.3s ease;
+          }
+          .buttons a:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+          }
+          .buttons img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            display: block;
           }
           @media (max-width: 480px) {
             .buttons {
@@ -69,31 +90,6 @@ export default function handler(req, res) {
             h1 {
               font-size: 24px;
             }
-          }
-          a {
-            display: inline-block;
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-          }
-          .btn-ios {
-            background: #007AFF;
-            color: white;
-          }
-          .btn-ios:hover {
-            background: #0051D5;
-            transform: translateY(-2px);
-          }
-          .btn-android {
-            background: #3DDC84;
-            color: #1f2937;
-          }
-          .btn-android:hover {
-            background: #1fa366;
-            transform: translateY(-2px);
           }
           .qr-section {
             margin-top: 50px;
@@ -119,8 +115,12 @@ export default function handler(req, res) {
           <p>Choose your platform to get started:</p>
           
           <div class="buttons">
-            <a href="${iosUrl}" class="btn-ios">🍎 App Store</a>
-            <a href="${androidUrl}" class="btn-android">🤖 Google Play</a>
+            <a href="${iosUrl}" target="_blank" rel="noopener noreferrer">
+              <img src="https://developer.apple.com/app-store/marketing/guidelines/v5/images/badge-example-preferred_2x.png" alt="Download on App Store">
+            </a>
+            <a href="${androidUrl}" target="_blank" rel="noopener noreferrer">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+            </a>
           </div>
           
           <div class="qr-section">
